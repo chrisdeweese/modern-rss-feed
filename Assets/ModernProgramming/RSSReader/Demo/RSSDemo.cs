@@ -42,15 +42,15 @@ public class RSSDemo : MonoBehaviour
         
 
         // Log the feed's items
-        foreach (RSSReader.item itm in rss.GetRSSItems())
+        foreach (RSSReader.item rssItem in rss.GetRSSItems())
         {
-            Debug.Log("Item Title: " + itm.title);
-            Debug.Log("Item Category: " + itm.category);
-            Debug.Log("Item Creator: " + itm.creator);
-            Debug.Log("Item guid: " + itm.guid);
-            Debug.Log("Item link: " + itm.link);
-            Debug.Log("Item publication date: " + itm.pubDate);
-            Debug.Log("Item description: " + itm.description);
+            Debug.Log("Item Title: " + rssItem.title);
+            Debug.Log("Item Category: " + rssItem.category);
+            Debug.Log("Item Creator: " + rssItem.creator);
+            Debug.Log("Item guid: " + rssItem.guid);
+            Debug.Log("Item link: " + rssItem.link);
+            Debug.Log("Item publication date: " + rssItem.pubDate);
+            Debug.Log("Item description: " + rssItem.description);
         }
     }
 }

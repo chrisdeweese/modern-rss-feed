@@ -14,31 +14,45 @@ A simple API to read XML data from RSS feeds.
 
 #### Getting Elements from Header Channel
 
-`RSSReader.GetHeaderLanguage()` - (string) Returns the header language if there is one.
+`RSSReader.GetLanguage()` - (string) Returns the header language if there is one.
 
-`RSSReader.GetHeaderTitle()` - (string) Returns the header title if there is one.
+`RSSReader.GetTitle()` - (string) Returns the header title if there is one.
 
-`RSSReader.GetHeaderLink()` - (string) Returns the header link if there is one.
+`RSSReader.GetLink()` - (string) Returns the header link if there is one.
 
-`RSSReader.GetHeaderDescription()` - (string) Returns the header description if there is one.
+`RSSReader.GetDescription()` - (string) Returns the header description if there is one.
 
-`RSSReader.GetHeaderDocs()` - (string) Returns the header docs if there is one.
+`RSSReader.GetDocs()` - (string) Returns the header docs if there is one.
 
-`RSSReader.GetHeaderManagingEditor()` - (string) Returns the header managing editor if there is one.
+`RSSReader.GetManagingEditor()` - (string) Returns the header managing editor if there is one.
 
-`RSSReader.GetHeaderWebMaster()` - (string) Returns the header web master if there is one.
+`RSSReader.GetWebMaster()` - (string) Returns the header web master if there is one.
 
-`RSSReader.GetHeaderLastBuildDate()` - (string) Returns the header's last build date if there is one.
+`RSSReader.GetLastBuildDate()` - (string) Returns the header's last build date if there is one.
 
-`RSSReader.GetHeaderGenerator()` - (string) Returns the header generator if there is one.
+`RSSReader.GetGenerator()` - (string) Returns the header generator if there is one.
 
-`RSSReader.GetHeaderCopyright()` - (string) Returns the header copyright if there is one.
+`RSSReader.GetCopyright()` - (string) Returns the header copyright if there is one.
 
 ------
 
-#### Getting Elements from Child Nodes
+#### Getting Child Items
 
-`RSSReader.GetAllChildNodes()` - (string) Returns all children nodes in the RSS feed.
+`RSSReader.GetRSSItems()` - (List<item>) Returns all children nodes in the RSS feed.
+
+`RSSReader.item.title` - (string) Title of the current item in the list.
+
+`RSSReader.item.category` - (string) Category of the current item in the list.
+
+`RSSReader.item.creator` - (string) Creator of the current item in the list.
+
+`RSSReader.item.guid` - (string) GUID of the current item in the list.
+
+`RSSReader.item.link` - (string) Link of the current item in the list.
+
+`RSSReader.item.pubDate` - (string) Publication date of the current item in the list.
+
+`RSSReader.item.description` - (string) Description of the current item in the list.
 
 ------
 
