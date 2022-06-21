@@ -10,7 +10,7 @@ namespace ModernProgramming
         /// <summary>
         /// This is the first XML &lt;channel> tag in the RSS document, also known as the header. 
         /// </summary>
-        public channel headerChannel;
+        private channel headerChannel;
         
         private XmlTextReader reader;
         private XmlDocument rssDoc;
@@ -58,6 +58,12 @@ namespace ModernProgramming
         /// <param name="feedURL">RSS URL to use.</param>
         public RSSReader(string feedURL)
         {
+            if (string.IsNullOrEmpty(feedURL))
+            {
+                Debug.Log("Modern RSS Reader - ERROR no URL inputted!");
+                return;
+            }
+            
             // Create a new header channel.
             headerChannel = new channel();
             
@@ -84,7 +90,7 @@ namespace ModernProgramming
             }
             else
             {
-                Debug.LogWarning("Modern RSS Reader - Error loading RSS document! Ensure URL is valid!");
+                Debug.Log("Modern RSS Reader - ERROR loading RSS document! Ensure URL is valid!");
                 return;
             }
             
@@ -103,7 +109,7 @@ namespace ModernProgramming
             }
             else
             {
-                Debug.LogWarning("Modern RSS Reader - Error locating <rss> tag in document! Ensure the page's XML is valid!");
+                Debug.Log("Modern RSS Reader - ERROR locating <rss> tag in document! Ensure the page's XML is valid!");
                 return;
             }
             
@@ -132,12 +138,12 @@ namespace ModernProgramming
                         
                         // Create a new item and fill it with the data we found.
                         item newItem = new item();
-                        if (nodeItem.InnerXml.Contains("title")) newItem.title = nodeItem["title"].InnerText;
-                        if (nodeItem.InnerXml.Contains("link")) newItem.link = nodeItem["link"].InnerText;
-                        if (nodeItem.InnerXml.Contains("category")) newItem.category = nodeItem["category"].InnerText;
-                        if (nodeItem.InnerXml.Contains("dc:creator")) newItem.creator = nodeItem["dc:creator"].InnerText;
-                        if (nodeItem.InnerXml.Contains("pubDate")) newItem.pubDate = nodeItem["pubDate"].InnerText;
-                        if (nodeItem.InnerXml.Contains("description")) newItem.description = nodeItem["description"].InnerText;
+                        if (nodeItem.InnerXml.Contains("<title>")) newItem.title = nodeItem["title"].InnerText;
+                        if (nodeItem.InnerXml.Contains("<link>")) newItem.link = nodeItem["link"].InnerText;
+                        if (nodeItem.InnerXml.Contains("<category>")) newItem.category = nodeItem["category"].InnerText;
+                        if (nodeItem.InnerXml.Contains("<dc:creator>")) newItem.creator = nodeItem["dc:creator"].InnerText;
+                        if (nodeItem.InnerXml.Contains("<pubDate>")) newItem.pubDate = nodeItem["pubDate"].InnerText;
+                        if (nodeItem.InnerXml.Contains("<description>")) newItem.description = nodeItem["description"].InnerText;
                         
                         // Add the item to the channel items list.
                         headerChannel.items.Add(newItem);
@@ -146,7 +152,7 @@ namespace ModernProgramming
             }
             else
             {
-                Debug.LogWarning("Modern RSS Reader - Error locating <channel> tag in document! Ensure the page's XML is valid!");
+                Debug.Log("Modern RSS Reader - ERROR locating <channel> tag in document! Ensure the page's XML is valid!");
                 return;
             }
         }
@@ -154,7 +160,7 @@ namespace ModernProgramming
         /// <summary>
         /// Returns the header language if there is one.
         /// </summary>
-        public string GetHeaderLanguage()
+        public string GetLanguage()
         {
             return headerChannel.language ?? string.Empty;
         }
@@ -162,7 +168,7 @@ namespace ModernProgramming
         /// <summary>
         /// Returns the header title if there is one.
         /// </summary>
-        public string GetHeaderTitle()
+        public string GetTitle()
         {
             return headerChannel.title ?? string.Empty;
         }
@@ -170,9 +176,73 @@ namespace ModernProgramming
         /// <summary>
         /// Returns the header link if there is one.
         /// </summary>
-        public string GetHeaderLink()
+        public string GetLink()
         {
             return headerChannel.link ?? string.Empty;
+        }
+        
+        /// <summary>
+        /// Returns the header description if there is one.
+        /// </summary>
+        public string GetDescription()
+        {
+            return headerChannel.description ?? string.Empty;
+        }
+        
+        /// <summary>
+        /// Returns the header docs if there is one.
+        /// </summary>
+        public string GetDocs()
+        {
+            return headerChannel.docs ?? string.Empty;
+        }
+        
+        /// <summary>
+        /// Returns the header's last build date if there is one.
+        /// </summary>
+        public string GetLastBuildDate()
+        {
+            return headerChannel.lastBuildDate ?? string.Empty;
+        }
+        
+        /// <summary>
+        /// Returns the header managing editor if there is one.
+        /// </summary>
+        public string GetManagingEditor()
+        {
+            return headerChannel.managingEditor ?? string.Empty;
+        }
+        
+        /// <summary>
+        /// Returns the header web master if there is one.
+        /// </summary>
+        public string GetWebMaster()
+        {
+            return headerChannel.webMaster ?? string.Empty;
+        }
+        
+        /// <summary>
+        /// Returns the header generator if there is one.
+        /// </summary>
+        public string GetGenerator()
+        {
+            return headerChannel.generator ?? string.Empty;
+        }
+        
+        /// <summary>
+        /// Returns the header copyright if there is one.
+        /// </summary>
+        public string GetCopyright()
+        {
+            return headerChannel.copyright ?? string.Empty;
+        }
+        
+        /// <summary>
+        /// Returns the RSS items if there are any.
+        /// </summary>
+        public List<item> GetRSSItems()
+        {
+            return headerChannel.items ?? new List<item>();
         }
     }   
 }
