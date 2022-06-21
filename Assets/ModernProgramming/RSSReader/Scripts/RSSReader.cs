@@ -150,5 +150,29 @@ namespace ModernProgramming
                 return;
             }
         }
+
+        /// <summary>
+        /// Returns the header language if there is one.
+        /// </summary>
+        public string GetHeaderLanguage()
+        {
+            return headerChannel.language ?? string.Empty;
+        }
+        
+        /// <summary>
+        /// Returns the header title if there is one.
+        /// </summary>
+        public string GetHeaderTitle()
+        {
+            return headerChannel.title ?? string.Empty;
+        }
+        
+        /// <summary>
+        /// Returns the header link if there is one.
+        /// </summary>
+        public string GetHeaderLink()
+        {
+            return headerChannel.link ?? string.Empty;
+        }
     }   
 }

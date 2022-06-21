@@ -36,6 +36,12 @@ A simple API to read XML data from RSS feeds.
 
 ------
 
+#### Getting Elements from Child Nodes
+
+`RSSReader.GetAllChildNodes()` - (string) Returns all children nodes in the RSS feed.
+
+------
+
 ### TO-DO
 
 - image tag support
@@ -44,3 +50,4 @@ A simple API to read XML data from RSS feeds.
 - comments tag support
 - HTML tag formatting
 - Create a demo scene with pre-made rss feeds
+- Test backwards compatability
