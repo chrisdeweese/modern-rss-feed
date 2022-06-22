@@ -38,7 +38,7 @@ A simple API to read XML data from RSS feeds.
 
 #### Getting Child Items
 
-`RSSReader.GetRSSItems()` - (List<item>) Returns all children nodes in the RSS feed.
+`RSSReader.GetRSSItems()` - (List<item>) Returns the RSS child items if there are any.
 
 `RSSReader.item.title` - (string) Title of the current item in the list.
 

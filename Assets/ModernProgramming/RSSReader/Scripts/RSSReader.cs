@@ -238,7 +238,7 @@ namespace ModernProgramming
         }
         
         /// <summary>
-        /// Returns the RSS items if there are any.
+        /// Returns the RSS child items if there are any.
         /// </summary>
         public List<item> GetRSSItems()
         {
