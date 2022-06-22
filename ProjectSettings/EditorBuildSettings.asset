@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/ModernProgramming/RSSReader/Demo/HeaderDemo.unity
+    path: Assets/ModernProgramming/RSSReader/Demo/Demo.unity
     guid: 889dbaad85032e74f8303cf8711b3e1c
   m_configObjects: {}

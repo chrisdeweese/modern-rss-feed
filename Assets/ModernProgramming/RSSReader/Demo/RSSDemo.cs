@@ -8,6 +8,10 @@ public class RSSDemo : MonoBehaviour
 {
     [Header("RSS/XML Feed URL")]
     public string URL;
+
+    [Header("Scroll View Elements")]
+    public Transform content;
+    [SerializeField] private GameObject textObject;
     
     [Header("Demo Labels")]
     public Text languageLabel;
@@ -40,17 +44,16 @@ public class RSSDemo : MonoBehaviour
         generatorLabel.text = "Generator: " + rss.GetGenerator();
         copyrightLabel.text = "Copyright: " + rss.GetCopyright();
         
-
-        // Log the feed's items
+        // Create the feed's items
         foreach (RSSReader.item rssItem in rss.GetRSSItems())
         {
-            Debug.Log("Item Title: " + rssItem.title);
-            Debug.Log("Item Category: " + rssItem.category);
-            Debug.Log("Item Creator: " + rssItem.creator);
-            Debug.Log("Item guid: " + rssItem.guid);
-            Debug.Log("Item link: " + rssItem.link);
-            Debug.Log("Item publication date: " + rssItem.pubDate);
-            Debug.Log("Item description: " + rssItem.description);
+            Instantiate(textObject, content).GetComponent<Text>().text = "Item Title: " + rssItem.title;
+            Instantiate(textObject, content).GetComponent<Text>().text = "Item Category: " + rssItem.category;
+            Instantiate(textObject, content).GetComponent<Text>().text = "Item Creator: " + rssItem.creator;
+            Instantiate(textObject, content).GetComponent<Text>().text = "Item GUID: " + rssItem.guid;
+            Instantiate(textObject, content).GetComponent<Text>().text = "Item Link: " + rssItem.link;
+            Instantiate(textObject, content).GetComponent<Text>().text = "Item Publication Date: " + rssItem.pubDate;
+            Instantiate(textObject, content).GetComponent<Text>().text = "Item Description: " + rssItem.description;
         }
     }
 }

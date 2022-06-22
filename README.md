@@ -67,3 +67,4 @@ A simple API to read XML data from RSS feeds.
 - Test backwards compatability
 - refresh method
 - set limit of items to fetch
+- Rich text support
