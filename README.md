@@ -1,4 +1,4 @@
-# modern-rss-feed
+# modern-rss-feed v1.0
 A simple API to read XML data from RSS feeds.
 
 ------
@@ -69,3 +69,4 @@ A simple API to read XML data from RSS feeds.
 - refresh method
 - set limit of items to fetch
 - Rich text support
+- realtime editor preview
