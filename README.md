@@ -7,6 +7,7 @@ A simple API to read XML data from RSS feeds.
 
 1. Download and import the modern-rss-feed package into your Unity project.
 2. Import the `ModernProgramming` namespace into your project file to start using Modern RSS Reader.
+3. See the demo scene for examples on implementation.
 
 ------
 
